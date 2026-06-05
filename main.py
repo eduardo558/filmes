@@ -8,8 +8,6 @@ load_dotenv()
 
 app = FastAPI()
 
-# CHAVES CORRIGIDAS E SEGURAS
-# O Render lerá estas variáveis do painel "Environment"
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY") 
 FOLDER_ID = os.getenv("FOLDER_ID")
 TMDB_API_KEY = os.getenv("TMDB_API_KEY")
@@ -56,16 +54,7 @@ def listar_catalogo():
                 "video_url": f"https://www.googleapis.com/drive/v3/files/{f['id']}?alt=media&key={GOOGLE_API_KEY}"
             })
     return {"categorias": categorias}
-# Adicione isso logo após definir a rota /api/filmes/catalogo
-    @app.get("/{full_path:path}")
-    def catch_all(full_path: str):
-        return {"message": "Rota não encontrada", "path_acessado": full_path}
-    @app.get("/api/filmes/catalogo")
-    def listar_catalogo():
-        # ... (todo o código da função aqui)
-        return {"categorias": categorias}
 
-# A função abaixo deve estar totalmente alinhada à esquerda (sem espaços antes do @)
-    @app.get("/{full_path:path}")
-    def catch_all(full_path: str):
-        return {"message": "Rota não encontrada", "path_acessado": full_path}
+@app.get("/{full_path:path}")
+def catch_all(full_path: str):
+    return {"message": "Rota não encontrada", "path_acessado": full_path}
