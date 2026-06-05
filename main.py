@@ -10,9 +10,9 @@ app = FastAPI()
 
 # CHAVES CORRIGIDAS E SEGURAS
 # O Render lerá estas variáveis do painel "Environment"
-GOOGLE_API_KEY = os.getenv("a79ce052616bb14b3f5a92719358aade") 
+GOOGLE_API_KEY = os.getenv("AIzaSyA305bUPYFjLSM8BZaTETMqqAOlDFvswBY") 
 FOLDER_ID = os.getenv("1je0zrxcXSSYnKQKIgLx4AYfHkVQzCt45")
-TMDB_API_KEY = os.getenv("AIzaSyA305bUPYFjLSM8BZaTETMqqAOlDFvswBY")
+TMDB_API_KEY = os.getenv("a79ce052616bb14b3f5a92719358aade")
 
 MAPA_GENEROS = {28: "Ação", 12: "Aventura", 16: "Animação", 35: "Comédia", 80: "Crime", 18: "Drama", 27: "Terror", 878: "Ficção Científica"}
 
