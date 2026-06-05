@@ -60,3 +60,12 @@ def listar_catalogo():
     @app.get("/{full_path:path}")
     def catch_all(full_path: str):
         return {"message": "Rota não encontrada", "path_acessado": full_path}
+    @app.get("/api/filmes/catalogo")
+    def listar_catalogo():
+        # ... (todo o código da função aqui)
+        return {"categorias": categorias}
+
+# A função abaixo deve estar totalmente alinhada à esquerda (sem espaços antes do @)
+    @app.get("/{full_path:path}")
+    def catch_all(full_path: str):
+        return {"message": "Rota não encontrada", "path_acessado": full_path}
