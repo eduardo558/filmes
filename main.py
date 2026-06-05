@@ -4,16 +4,15 @@ import urllib.parse
 from fastapi import FastAPI
 from dotenv import load_dotenv
 
-# Carrega variáveis de ambiente (útil para desenvolvimento local com arquivo .env)
 load_dotenv()
 
 app = FastAPI()
 
-# Lê as chaves de variáveis de ambiente. 
-# Se não encontrar no Render, usará os valores padrão que você configurou no painel.
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "a79ce052616bb14b3f5a92719358aade")
-FOLDER_ID = os.getenv("FOLDER_ID", "1je0zrxcXSSYnKQKIgLx4AYfHkVQzCt45")
-TMDB_API_KEY = os.getenv("TMDB_API_KEY", "AIzaSyA305bUPYFjLSM8BZaTETMqqAOlDFvswBY")
+# CHAVES CORRIGIDAS E SEGURAS
+# O Render lerá estas variáveis do painel "Environment"
+GOOGLE_API_KEY = os.getenv("a79ce052616bb14b3f5a92719358aade") 
+FOLDER_ID = os.getenv("1je0zrxcXSSYnKQKIgLx4AYfHkVQzCt45")
+TMDB_API_KEY = os.getenv("AIzaSyA305bUPYFjLSM8BZaTETMqqAOlDFvswBY")
 
 MAPA_GENEROS = {28: "Ação", 12: "Aventura", 16: "Animação", 35: "Comédia", 80: "Crime", 18: "Drama", 27: "Terror", 878: "Ficção Científica"}
 
@@ -39,7 +38,8 @@ def listar_catalogo():
     url = f"https://www.googleapis.com/drive/v3/files?q={query}&fields=files(id,name,mimeType)&key={GOOGLE_API_KEY}"
     
     try:
-        arquivos = requests.get(url, timeout=10).json().get("files", [])
+        response = requests.get(url, timeout=10)
+        arquivos = response.json().get("files", [])
     except:
         return {"categorias": {}}
     
