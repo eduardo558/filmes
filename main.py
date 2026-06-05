@@ -11,9 +11,9 @@ app = FastAPI()
 
 # Lê as chaves de variáveis de ambiente. 
 # Se não encontrar no Render, usará os valores padrão que você configurou no painel.
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "SUA_CHAVE_AQUI")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "a79ce052616bb14b3f5a92719358aade")
 FOLDER_ID = os.getenv("FOLDER_ID", "1je0zrxcXSSYnKQKIgLx4AYfHkVQzCt45")
-TMDB_API_KEY = os.getenv("TMDB_API_KEY", "SUA_CHAVE_AQUI")
+TMDB_API_KEY = os.getenv("TMDB_API_KEY", "AIzaSyA305bUPYFjLSM8BZaTETMqqAOlDFvswBY")
 
 MAPA_GENEROS = {28: "Ação", 12: "Aventura", 16: "Animação", 35: "Comédia", 80: "Crime", 18: "Drama", 27: "Terror", 878: "Ficção Científica"}
 
