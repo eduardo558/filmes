@@ -56,3 +56,7 @@ def listar_catalogo():
                 "video_url": f"https://www.googleapis.com/drive/v3/files/{f['id']}?alt=media&key={GOOGLE_API_KEY}"
             })
     return {"categorias": categorias}
+# Adicione isso logo após definir a rota /api/filmes/catalogo
+    @app.get("/{full_path:path}")
+    def catch_all(full_path: str):
+        return {"message": "Rota não encontrada", "path_acessado": full_path}
